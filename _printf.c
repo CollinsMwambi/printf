@@ -19,12 +19,15 @@ int _print_char(va_list args)
 
 /**
  * _print_string - Helper function to print a string or "(null)"
- * @str: The string to print
+ *@args: A `va_list` containing the string to print
+ *
+ *This function takes a `va_list` containing the string to print
+ *and prints it to the standard output.
  *
  * Return: Number of characters printed
  */
 
-int _print_string(char *str)
+int _print_string(va_list args)
 {
 	int printed = 0;
 
