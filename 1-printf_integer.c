@@ -1,21 +1,18 @@
 #include "main.h"
 
 /**
- * printf_integer - prints intiger number
- * @args: number arguements
- * @printed: the printed characters
- * Return: printed charcaters
+ * print_integer - Helper function to print an integer.
+ * @num: The integer to print.
+ * @printed: The count of characters printed so far.
+ * Return: The updated count of characters printed.
  */
-
-int printf_integer(va_list args, int printed)
+int print_integer(int num, int printed)
 {
-	int num = va_arg(args, int);
-
 	int digits = 0;
 
 	int temp = num;
 
-	int digit;
+	int i, digit, pow10;
 
 	if (num < 0)
 	{
@@ -31,18 +28,27 @@ int printf_integer(va_list args, int printed)
 
 	while (digits > 0)
 	{
-		int pow10 = 1;
-
-		int i;
-
+		pow10 = 1;
 		for (i = 1; i < digits; i++)
-		{
 			pow10 *= 10;
-		}
 		digit = num / pow10;
 		printed += _putchar(digit + '0');
 		num -= digit * pow10;
 		digits--;
 	}
 	return (printed);
+}
+
+
+/**
+ * printf_integer - Print an integer.
+ * @args: The va_list containing the integer to print.
+ * @printed: The count of characters printed so far.
+ * Return: The updated count of characters printed.
+ */
+int printf_integer(va_list args, int printed)
+{
+	int num = va_arg(args, int);
+
+	return (print_integer(num, printed));
 }
