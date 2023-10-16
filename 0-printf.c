@@ -1,101 +1,48 @@
 #include "main.h"
 
 /**
- * _print_char - Helper function to print a character
- * @args: A `va_list` containing the character to print
- *
- * This function takes a `va_list` containing the character to print
- * and prints it to the standard output.
- *
- * Return: Number of characters printed (always 1)
- */
-int _print_char(va_list args)
-{
-	char c = va_arg(args, int);
-
-	_putchar(c);
-	return (1);
-}
-
-/**
- * _print_string - Helper function to print a string or "(null)"
- *@args: A `va_list` containing the string to print
- *
- *This function takes a `va_list` containing the string to print
- *and prints it to the standard output.
- *
- * Return: Number of characters printed
+ * printf_integer - prints intiger number
+ * @args: number arguements
+ * @printed: the printed characters
+ * Return: printed charcaters
  */
 
-int _print_string(va_list args)
+int printf_integer(va_list args, int printed)
 {
-	int printed = 0;
+	int num = va_arg(args, int);
 
-	char *str = va_arg(args, char *);
+	int digits = 0;
 
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
+	int temp = num;
+
+	int digit;
+
+	if (num < 0)
 	{
-		_putchar(*str);
-		printed++;
-		str++;
+		printed += _putchar('-');
+		num = -num;
+		temp = num;
 	}
 
-	return (printed);
-}
+	do {
+		digits++;
+		temp /= 10;
+	} while (temp != 0);
 
-/**
- * _printf - implementation of the inbuilt printf
- * @format: the format specifier
- * @...: Variable number of arguments
- * Return: Number of characters printed (excluding the null byte)
- */
-
-int _printf(const char *format, ...)
-{
-	int printed = 0;
-
-	va_list args;
-
-	va_start(args, format);
-
-	while (format && *format)
+	while (digits > 0)
 	{
-		if (*format != '%')
+		int pow10 = 1;
+
+		int i;
+
+		for (i = 1; i < digits; i++)
 		{
-			_putchar(*format);
-			printed++;
+			pow10 *= 10;
 		}
-		else
-		{
-			format++;
-			if (*format == '\0')
-				break;
-			switch (*format)
-			{
-				case 'c':
-					printed += _print_char(args);
-					break;
-				case 's':
-					printed += _print_string(args);
-					break;
-				case 'd':
-				case 'i':
-					printed += printf_integer(args, printed);
-					break;
-				case '%':
-					_putchar('%');
-					printed++;
-					break;
-				default:
-					_putchar('%');
-					_putchar(*format);
-					printed += 2;
-			}
-		}
-		format++;
+		digit = num / pow10;
+		printed += _putchar(digit + '0');
+		num -= digit * pow10;
+		digits--;
 	}
-	va_end(args);
 	return (printed);
 }
