@@ -80,6 +80,10 @@ int _printf(const char *format, ...)
 				case 's':
 					printed += _print_string(args);
 					break;
+				case 'd':
+				case 'i':
+					printed += printf_integer(args, printed);
+					break;
 				case '%':
 					_putchar('%');
 					printed++;

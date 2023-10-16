@@ -10,15 +10,17 @@
 int printf_integer(va_list args, int printed)
 {
 	int num = va_arg(args, int);
+
 	int digits = 0;
+
 	int temp = num;
+
 	int digit;
 
 	if (num < 0)
 	{
 		printed += _putchar('-');
 		num = -num;
-
 		temp = num;
 	}
 
@@ -30,6 +32,7 @@ int printf_integer(va_list args, int printed)
 	while (digits > 0)
 	{
 		int pow10 = 1;
+
 		int i;
 
 		for (i = 1; i < digits; i++)
