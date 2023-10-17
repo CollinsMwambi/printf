@@ -10,9 +10,9 @@ int _printf(const char *format, ...);
 int print_char(va_list args, char *buffer, int *buffer_index);
 int print_string(va_list args, char *buffer, int *buffer_index);
 int print_int(va_list args, char *buffer, int *buffer_index);
-int _putchar(char c);
+int _putchar(char c, char *buffer, int *buffer_index);
 
-int print_int_recursive(int num);
+int print_int_recursive(int num, char *buffer, int *buffer_index); 
 int print_binary(va_list args, char *buffer, int *buffer_index);
 int print_hex(va_list args, char *buffer, int *buffer_index);
 int print_octal(va_list args, char *buffer, int *buffer_index);
