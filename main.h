@@ -23,9 +23,9 @@ int print_pointer(va_list args, char *buffer, int *buffer_index);
 void handle_rot13(char *str, int len);
 
 int handle_length_modifiers(const char *format, int i, char *length_modifier);
+int handle_precision(const char *format, int i, int *precision, va_list args);
 int handle_field_width(const char *format, int i, int *field_width);
 int handle_flags(const char *format, int i, int *plus_flag, int *space_flag, int *hash_flag);
-int handle_precision(const char *format, int i, int *precision);
 int handle_zero_flag(const char *format, int i, int *zero_flag);
 int handle_minus_flag(const char *format, int i, int *minus_flag);
 int handle_custom_specifiers(va_list args, char *buffer, int *buffer_index, char specifier);

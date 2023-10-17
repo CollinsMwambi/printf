@@ -8,7 +8,7 @@
  *
  * Return: The number of characters processed
  */
-int handle_precision(const char *format, int i, int *precision)
+int handle_precision(const char *format, int i, int *precision, va_list args)
 {
 	int prec = -1;
 
