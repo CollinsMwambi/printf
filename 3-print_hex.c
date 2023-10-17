@@ -15,7 +15,7 @@ int print_hex(va_list args)
 
 	if (num == 0)
 	{
-		_putchar('0');
+		_putchar('0', NULL, NULL);
 		return (1);
 	}
 
@@ -29,9 +29,9 @@ int print_hex(va_list args)
 	for (i = i - 1; i >= 0; i--)
 	{
 		if (hex[i] < 10)
-			_putchar('0' + hex[i]);
+			_putchar('0' + hex[i], NULL, NULL);
 		else
-			_putchar('a' + hex[i] - 10);
+			_putchar('a' + hex[i] - 10, NULL, NULL);
 
 		count++;
 	}
