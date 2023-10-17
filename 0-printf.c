@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 		i = handle_flags(format, i, &plus_flag, &space_flag, &hash_flag);
 		i = handle_length_modifiers(format, i, &length_modifier);
 		i = handle_field_width(format, i, &field_width);
-		i = handle_precision(format, i, &precision);
+		i = handle_precision(format, i, &precision, args);
 		i = handle_zero_flag(format, i, &zero_flag);
 		i = handle_minus_flag(format, i, &minus_flag);
 
