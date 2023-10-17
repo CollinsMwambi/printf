@@ -14,23 +14,23 @@ int handle_precision(const char *format, int i, int *precision)
 
 	if (format[i] == '.')
 	{
-		 i++;
-		 if (format[i] == '*')
-		 {
-			 i++;
-			 *precision = va_arg(args, int);
-		 }
-		 else
-		 {
-			 prec = 0;
+		i++;
+		if (format[i] == '*')
+		{
+			i++;
+			*precision = va_arg(args, int);
+		}
+		else
+		{
+			prec = 0;
 
-			 while (format[i] >= '0' && format[i] <= '9')
-			 {
-				 prec = prec * 10 + (format[i] - '0');
-				 i++;
-			 }
-			 *precision = prec;
-		 }
+			while (format[i] >= '0' && format[i] <= '9')
+			{
+				prec = prec * 10 + (format[i] - '0');
+				i++;
+			}
+			*precision = prec;
+		}
 	}
 	return (i);
 }

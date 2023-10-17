@@ -29,12 +29,12 @@ int print_pointer(va_list args, char *buffer, int *buffer_index)
 	}
 	else
 	{
-		 while (address > 0)
-		 {
-			 buffer[(*buffer_index)++] = hex_digits[address % 16];
-			 address /= 16;
-			 count++;
-		 }
+		while (address > 0)
+		{
+			buffer[(*buffer_index)++] = hex_digits[address % 16];
+			address /= 16;
+			count++;
+		}
 	}
 	return (count + 2);
 }

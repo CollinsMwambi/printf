@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * print_custom_string - Print a string with special handling for non-printable characters
+ * print_custom_string - Print a string with special
+ * handling for non-printable characters
  * @args: The va_list containing the string
  * @buffer: The output buffer
  * @buffer_index: The index in the buffer

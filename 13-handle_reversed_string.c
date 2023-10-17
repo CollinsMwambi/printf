@@ -23,7 +23,8 @@ int handle_custom_specifiers(va_list args, char *buffer, int *buffer_index, char
 
 		if (str != NULL)
 		{
-		       	len = 0;
+			len = 0;
+
 			while (str[len] != '\0')
 				len++;
 			for (i = len - 1; i >= 0; i--)

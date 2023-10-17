@@ -18,4 +18,3 @@ int handle_minus_flag(const char *format, int i, int *minus_flag)
 	
 	return (i);
 }
-

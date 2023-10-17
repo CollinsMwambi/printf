@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * handle_length_modifiers - Handle length modifiers for non-custom conversion specifiers
+ * handle_length_modifiers - Handle length modifiers
+ * for non-custom conversion specifiers
  * @format: The format string
  * @i: The current index in the format string
  * @length_modifier: Pointer to the length modifier ('l', 'h', or '\0')

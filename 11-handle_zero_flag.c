@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * handle_zero_flag - Handle the '0' flag character for non-custom conversion specifiers
+ * handle_zero_flag - Handle the '0' flag character
+ * for non-custom conversion specifiers
  * @format: The format string
  * @i: The current index in the format string
  * @zero_flag: Pointer to the zero flag (1 if active, 0 if not)
