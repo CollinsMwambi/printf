@@ -14,5 +14,5 @@ int print_char(va_list args, char *buffer, int *buffer_index)
 {
 	(void)buffer;
 	(void)buffer_index;
-	return (_putchar(va_arg(args, int)));
+	return (_putchar(va_arg(args, int), buffer, buffer_index));
 }
