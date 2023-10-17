@@ -11,27 +11,24 @@
  */
 int handle_custom_specifiers(va_list args, char *buffer, int *buffer_index, char specifier)
 {
-	int count = 0;
+	int count = 0, len = 0, i;
 
-	int len, i;
-
-	if (specifier == 'r')
+	if (specifier == 'r' || specifier == 'R')
 	{
 		char *str = va_arg(args, char *);
 
 		if (str != NULL)
 		{
-			len = 0;
-
 			while (str[len] != '\0')
 				len++;
-			for (i = len - 1; i >= 0; i--)
+			if (specifier == 'R')
+			{
+				handle_rot13(str, len);
+			}
+			for (i = 0; i < len; i++)
 				buffer[(*buffer_index)++] = str[i];
-
 			count += len;
 		}
 	}
-
 	return (count);
 }
-
