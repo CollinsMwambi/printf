@@ -12,7 +12,11 @@
 
 int print_char(va_list args, char *buffer, int *buffer_index)
 {
+	char c = va_arg(args, int);
+
 	(void)buffer;
 	(void)buffer_index;
-	return (_putchar(va_arg(args, int), buffer, buffer_index));
+
+	return (_putchar(c));
+
 }

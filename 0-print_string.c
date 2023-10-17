@@ -14,12 +14,15 @@ int print_string(va_list args, char *buffer, int *buffer_index)
 
 	int count = 0;
 
+	(void)buffer;
+	(void)buffer_index;
+
 	if (str == NULL)
 		str = "(null)";
 
 	while (str[count])
 	{
-		_putchar(str[count], buffer, buffer_index);
+		_putchar(str[count]);
 		count++;
 	}
 
