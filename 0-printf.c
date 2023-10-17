@@ -20,21 +20,6 @@ int _printf(const char *format, ...)
 
 	char buffer[1024];
 
-	format_specifier_t specifiers[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'i', print_int},
-		{'d', print_int},
-		{'b', print_binary},
-		{'u', print_unsigned},
-		{'o', print_octal},
-		{'x', print_hex},
-		{'X', print_hex},
-		{'S', print_custom_string},
-		{'p', print_pointer},
-		{'\0', NULL}
-	};
-
 	va_start(args, format);
 
 	while (format && format[i])

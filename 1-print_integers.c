@@ -23,7 +23,7 @@ int print_int(va_list args)
 	if (num / 10)
 		count += print_int_recursive(num / 10);
 
-	_putchar('0' + (num % 10);
+	_putchar('0' + (num % 10));
 	return (count + 1);
 }
 

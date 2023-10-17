@@ -6,11 +6,6 @@
 
 typedef int (*print_function_t)(va_list args, char *buffer, int *buffer_index);
 
-typedef struct {
-    char specifier;
-    print_function_t print_func;
-} format_specifier_t;
-
 int _printf(const char *format, ...);
 int print_char(va_list args, char *buffer, int *buffer_index);
 int print_string(va_list args, char *buffer, int *buffer_index);
