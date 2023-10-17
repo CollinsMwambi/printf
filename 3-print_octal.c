@@ -7,7 +7,7 @@
  * Return: Number of characters printed
  */
 
-int print_octal(va_list args)
+int print_octal(va_list args, char *buffer, int *buffer_index)
 {
 	unsigned int num = va_arg(args, unsigned int);
 
@@ -15,11 +15,11 @@ int print_octal(va_list args)
 
 	int octal[32];
 
-	int i;
+	int i = 0;
 
 	if (num == 0)
 	{
-		_putchar('0');
+		_putchar('0', buffer, buffer_index);
 		return (1);
 	}
 
@@ -32,7 +32,7 @@ int print_octal(va_list args)
 
 	for (i = i - 1; i >= 0; i--)
 	{
-		_putchar('0' + octal[i]);
+		_putchar('0' + octal[i], buffer, buffer_index);
 		count++;
 	}
 	return (count);
