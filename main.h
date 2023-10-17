@@ -2,31 +2,28 @@
 #define MAIN_H
 
 #include <stdarg.h>
-#include <stdarg.h>
 #include <unistd.h>
-#include <stdarg.h>
 
 typedef int (*print_function_t)(va_list args, char *buffer, int *buffer_index);
 
 typedef struct {
     char specifier;
-    int (*print_func)(va_list args, char *buffer, int *buffer_index);
+    print_function_t print_func;
 } format_specifier_t;
 
 int _printf(const char *format, ...);
-int print_char(va_list args);
-int print_string(va_list args);
-int print_int(va_list args);
+int print_char(va_list args, char *buffer, int *buffer_index);
+int print_string(va_list args, char *buffer, int *buffer_index);
+int print_int(va_list args, char *buffer, int *buffer_index);
 int _putchar(char c);
 
 int print_int_recursive(int num);
-int print_binary(va_list args);
-int print_hex(va_list args);
-int print_octal(va_list args);
-int print_unsigned(va_list args);
+int print_binary(va_list args, char *buffer, int *buffer_index);
+int print_hex(va_list args, char *buffer, int *buffer_index);
+int print_octal(va_list args, char *buffer, int *buffer_index);
+int print_unsigned(va_list args, char *buffer, int *buffer_index);
 int print_custom_string(va_list args, char *buffer, int *buffer_index);
 int print_pointer(va_list args, char *buffer, int *buffer_index);
-
 
 void handle_rot13(char *str, int len);
 
@@ -39,3 +36,4 @@ int handle_minus_flag(const char *format, int i, int *minus_flag);
 int handle_custom_specifiers(va_list args, char *buffer, int *buffer_index, char specifier);
 
 #endif /* MAIN_H */
+
