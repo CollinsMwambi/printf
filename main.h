@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdio.h>
 
 typedef int (*print_function_t)(va_list args, char *buffer, int *buffer_index);
 
