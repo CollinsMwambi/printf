@@ -15,11 +15,9 @@ int handle_custom_specifiers(va_list args, char *buffer, int *buffer_index, char
 
 	int len, i;
 
-	char *str;
-
 	if (specifier == 'r')
 	{
-		*str = va_arg(args, char *);
+		char *str = va_arg(args, char *);
 
 		if (str != NULL)
 		{
