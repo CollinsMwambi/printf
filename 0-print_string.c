@@ -7,7 +7,8 @@
  * Return: Number of characters printed
  */
 
-int print_string(va_list args)
+
+int print_string(va_list args, char *buffer, int *buffer_index)
 {
 	char *str = va_arg(args, char *);
 
@@ -18,7 +19,7 @@ int print_string(va_list args)
 
 	while (str[count])
 	{
-		_putchar(str[count]);
+		_putchar(buffer, buffer_index, str[count]);
 		count++;
 	}
 
