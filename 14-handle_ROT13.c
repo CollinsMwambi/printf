@@ -5,14 +5,14 @@
  * @str: The input string to be ROT13 encrypted
  * @len: The length of the string
  */
-static void handle_rot13(char *str, int len)
+void handle_rot13(char *str, int len)
 {
 	int i;
 
-	char c = str[i];
-
 	for (i = 0; i < len; i++)
 	{
+		char c = str[i];
+
 		if ((c >= 'a' && c <= 'z'))
 		{
 			if (c >= 'a' + 13)
@@ -67,7 +67,7 @@ int handle_custom_specifiers(va_list args, char *buffer, int *buffer_index, char
 
 			handle_rot13(str, len);
 
-			for (int i = 0; i < len; i++)
+			for (i = 0; i < len; i++)
 				buffer[(*buffer_index)++] = str[i];
 			count += len;
 		}
