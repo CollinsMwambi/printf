@@ -19,7 +19,12 @@ int print_string(va_list args, char *buffer, int *buffer_index)
 
 	while (str[count])
 	{
-		_putchar(buffer, buffer_index, str[count]);
+		_putchar(str[count]);
+		if (buffer && buffer_index)
+		{
+			buffer[*buffer_index] = str[count];
+			(*buffer_index)++;
+		}
 		count++;
 	}
 
