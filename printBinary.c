@@ -1,19 +1,34 @@
 #include "main.h"
 
 /**
- * print_binary - Print a number in base 2
- * @list: Number to print in base 2
- *
- * Return: Length of the numbers in binary
- **/
-int print_binary(va_list list)
+ * printf_bin - prints a binary number.
+ * @val: arguments.
+ * Return: 1.
+ */
+int printf_bin(va_list val)
 {
-	char *p_buff;
-	int size;
+	int flag = 0;
+	int cont = 0;
+	int i, a = 1, b;
+	unsigned int num = va_arg(val, unsigned int);
+	unsigned int p;
 
-	p_buff = itoa(va_arg(list, unsigned int), 2);
-
-	size = print(p_buff);
-
-	return (size);
+	for (i = 0; i < 32; i++)
+	{
+		p = ((a << (31 - i)) & num);
+		if (p >> (31 - i))
+			flag = 1;
+		if (flag)
+		{
+			b = p >> (31 - i);
+			_putchar(b + 48);
+			cont++;
+		}
+	}
+	if (cont == 0)
+	{
+		cont++;
+		_putchar('0');
+	}
+	return (cont);
 }
