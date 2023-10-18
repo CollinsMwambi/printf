@@ -1,50 +1,50 @@
 #include "main.h"
+#include <stdio.h>
 
-#define MAX_HEX_DIGITS 16
+int _strcmp(char *, char *);
 
 /**
- * printf_pointer - prints a binary number
- * @args: numberof arguements
- * @printed: the printed characters
- * Return: printed charcaters
- */
-
-int printf_pointer(va_list args, int printed)
+ * print_pointer - Print a number in hexadecimal format
+ * @list: Number to print
+ *
+ * Return: Length of the number
+ **/
+int print_pointer(va_list list)
 {
-	void *ptr = va_arg(args, void*);
-	unsigned long num = (unsigned long) ptr;
-	int digits = 0;
-	int i;
-	unsigned long temp = num;
-	char hex_digits[MAX_HEX_DIGITS] = "0123456789abcdef";
-	char hex[MAX_HEX_DIGITS];
+	char *p_buff;
+	int size;
 
-	while (temp != 0)
-	{
-		digits++;
-		temp /= 16;
-	}
+	p_buff = itoa(va_arg(list, unsigned long int), 16);
 
-	printed += _putchar('0');
-	printed += _putchar('x');
+	if (!_strcmp(p_buff, "0"))
+		return (print("(nil)"));
 
-	if (num == 0)
-	{
-		printed += _putchar('0');
-	}
+	size = print("0x");
+
+	if (!_strcmp(p_buff, "-1"))
+		size += print("ffffffffffffffff");
 	else
-	{
-		for (i = digits - 1; i >= 0; i--)
-		{
-			int digit = num % 16;
+		size += print(p_buff);
 
-			hex[i] = hex_digits[digit];
-			num /= 16;
-		}
-		for (i = 0; i < digits; i++)
-		{
-			printed += _putchar(hex[i]);
-		}
-	}
-	return (printed);
+	return (size);
 }
+
+/**
+ * _strcmp - Compare two strings
+ * @s1: String 1
+ * @s2: String 2
+ * Return: Integer
+ **/
+int _strcmp(char *s1, char *s2)
+{
+	int i;
+
+	for (i = 0; s1[i] != '\0'; i++)
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+	}
+
+	return (0);
+}
+

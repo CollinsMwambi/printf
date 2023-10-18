@@ -1,37 +1,19 @@
 #include "main.h"
 
 /**
- * printf_binary - prints a binary number
- * @num: number arguements
- * @printed: the printed characters
- * Return: printed charcaters
- */
-
-int printf_binary(unsigned int num, int printed)
+ * print_binary - Print a number in base 2
+ * @list: Number to print in base 2
+ *
+ * Return: Length of the numbers in binary
+ **/
+int print_binary(va_list list)
 {
-	int binary[32] = {0};
-	int i = 0;
+	char *p_buff;
+	int size;
 
-	if (num == 0)
-	{
-		_putchar('0');
-		printed++;
-		return (printed);
-	}
+	p_buff = itoa(va_arg(list, unsigned int), 2);
 
-	while (num > 0)
-	{
-		binary[i] = num % 2;
-		num /= 2;
-		i++;
-	}
+	size = print(p_buff);
 
-	while (i > 0)
-	{
-		i--;
-		_putchar('0' + binary[i]);
-		printed++;
-	}
-
-	return (printed);
+	return (size);
 }

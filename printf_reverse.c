@@ -1,27 +1,22 @@
 #include "main.h"
 
 /**
- * printf_reverse - prints a binary number
- * @args: number of arguements
- * @printed: the printed characters
- * Return: printed charcaters
- */
-
-int printf_reverse(va_list args, int printed)
+ * print_rev_string - Print a string in reverse
+ * @list: List of arguments
+ *
+ * Return: Length of the string
+ **/
+int  print_rev_string(va_list list)
 {
-	char *str = va_arg(args, char *);
-	int len = 0, i;
+	int i, size;
+	const char *str;
 
-	while (str[len])
-	{
-		len++;
-	}
+	str = va_arg(list, const char *);
 
-	for (i = len - 1; i >= 0; i--)
-	{
+	size = _strlen(str);
+
+	for (i = size - 1; i >= 0; i--)
 		_putchar(str[i]);
-		printed++;
-	}
 
-	return (printed);
+	return (size);
 }

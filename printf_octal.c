@@ -1,37 +1,19 @@
 #include "main.h"
 
 /**
- * printf_octal - prints a binary number
- * @num: number of arguements
- * @printed: the printed characters
- * Return: printed charcaters
- */
-
-int printf_octal(unsigned int num, int printed)
+ * print_octal - Print a unsigned octal
+ * @list: Number to print
+ *
+ * Return: Length of the number
+ **/
+int print_octal(va_list list)
 {
-	int oct[100], i = 0, j;
+	char *p_buff;
+	int size;
 
-	while (num != 0)
-	{
-		int remainder = num % 8;
+	p_buff = itoa(va_arg(list, unsigned int), 8);
 
-		oct[i] = 48 + remainder;
-		i++;
-		num /= 8;
-	}
+	size = print((p_buff != NULL) ? p_buff : "NULL");
 
-	if (i == 0)
-	{
-		_putchar('0');
-		printed++;
-	}
-	else
-	{
-		for (j = i - 1; j >= 0; j--)
-		{
-			_putchar(oct[j]);
-			printed++;
-		}
-	}
-	return (printed);
+	return (size);
 }
