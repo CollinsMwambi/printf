@@ -1,50 +1,31 @@
 #include "main.h"
-#include <stdio.h>
-
-int _strcmp(char *, char *);
 
 /**
- * print_pointer - Print a number in hexadecimal format
- * @list: Number to print
- *
- * Return: Length of the number
- **/
-int print_pointer(va_list list)
+ * printf_pointer - prints an hexgecimal number.
+ * @val: arguments.
+ * Return: counter.
+ */
+int printf_pointer(va_list val)
 {
-	char *p_buff;
-	int size;
-
-	p_buff = itoa(va_arg(list, unsigned long int), 16);
-
-	if (!_strcmp(p_buff, "0"))
-		return (print("(nil)"));
-
-	size = print("0x");
-
-	if (!_strcmp(p_buff, "-1"))
-		size += print("ffffffffffffffff");
-	else
-		size += print(p_buff);
-
-	return (size);
-}
-
-/**
- * _strcmp - Compare two strings
- * @s1: String 1
- * @s2: String 2
- * Return: Integer
- **/
-int _strcmp(char *s1, char *s2)
-{
+	void *p;
+	char *s = "(nil)";
+	long int a;
+	int b;
 	int i;
 
-	for (i = 0; s1[i] != '\0'; i++)
+	p = va_arg(val, void*);
+	if (p == NULL)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			_putchar(s[i]);
+		}
+		return (i);
 	}
 
-	return (0);
+	a = (unsigned long int)p;
+	_putchar('0');
+	_putchar('x');
+	b = printf_hex_aux(a);
+	return (b + 2);
 }
-
